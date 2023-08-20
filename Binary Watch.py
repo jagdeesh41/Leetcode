@@ -1,3 +1,6 @@
+#401. Binary Watch
+#https://leetcode.com/problems/binary-watch/
+
 class Solution:
     ans=[]
     def solve(self,index,time,l,count,on,mins,hrs):
