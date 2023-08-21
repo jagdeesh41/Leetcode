@@ -5,18 +5,26 @@ class CombinationIterator:
 
     ans=[]
     i=0
-    def solve(self,index,count,c,length,n_s):
+    def solve1(self,index,count,c,length,n_s):
         if count==length:
             self.ans.append(n_s)
             return
         if index==len(c):
             return
-        pick=self.solve(index+1,count+1,c,length,n_s+c[index])
-        np=self.solve(index+1,count,c,length,n_s)
+        pick=self.solve1(index+1,count+1,c,length,n_s+c[index])
+        np=self.solve1(index+1,count,c,length,n_s)
+
+    def solve2(self,index,count,c,length,n_s):
+        if count==length:
+            self.ans.append(n_s)
+            return
+        for j in range(index,len(c)):
+            self.solve2(j+1,count+1,c,length,n_s+c[j])
+
     def __init__(self, c: str, length: int):
         self.ans=[]
         self.i=0
-        self.solve(0,0,c,length,"")
+        self.solve2(0,0,c,length,"")
 
         
 
