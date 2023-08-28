@@ -18,7 +18,7 @@ Example 2:
 Input: s = "abcd"
 Output: ["abcd"]
 """
-
+#method 1
 s=input()
 l=[]
 flag=True
@@ -45,6 +45,39 @@ def solve(index,l,ans,n_s):
 ans=[]
 solve(0,l,ans,"")
 print(ans)
+
+
+#method 2
+s=input()
+l=[]
+def solve(index,s,n_s,ans):
+    if index==len(s):
+        ans.append(n_s)
+        return 
+    if s[index]=="{":
+        start=index+1
+        # find "}"
+        end=s.index("}",index)
+        temp=[]
+        for ele in s[start:end].split(","):
+            temp.append(ele)
+        print(temp)
+        for choice in sorted(temp):
+            solve(end+1,s,n_s+choice,ans)
+    else:
+        solve(index+1,s,n_s+s[index],ans)
+ans=[]
+solve(0,s,"")
+print(ans)
+        
+        
+        
+    
+    
+
+
+
+
     
             
 
