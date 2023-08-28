@@ -39,7 +39,7 @@ def solve(index,l,ans,n_s):
     if index==len(l):
         ans.append(n_s)
         return 
-    for choice in l[index]:
+    for choice in sorted(l[index]):
         u_s=n_s+choice
         solve(index+1,l,ans,u_s)
 ans=[]
